@@ -1,0 +1,157 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(5px) brightness(50%);
+    transform: scale(1.1); /* Немного увеличиваем видео */
+}
+
+.container {
+    padding: 20px;
+    z-index: 2;
+    position: relative;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    text-shadow: 0 6px 8px rgba(0, 0, 0, 1);
+}
+
+.wheel-container {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: 0 auto;
+}
+
+.wheel {
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        #f44336 0deg 45deg,
+        #4caf50 45deg 90deg,
+        #aaac32 90deg 135deg,
+        #2196f3 135deg 180deg,
+        #e91e63 180deg 225deg,
+        #9c27b0 225deg 270deg,
+        #ff9800 270deg 315deg,
+        #607d8b 315deg 360deg
+    );
+    border-radius: 50%;
+    position: absolute;
+    transform-origin: center;
+    transition: transform 4s cubic-bezier(0.2, 0.9, 0.3, 1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+}
+
+.segment:nth-child(1) { transform: rotate(22.5deg) translate(10%, -50%); }
+.segment:nth-child(2) { transform: rotate(67.5deg) translate(10%, -50%); }
+.segment:nth-child(3) { transform: rotate(112.5deg) translate(10%, -50%); }
+.segment:nth-child(4) { transform: rotate(157.5deg) translate(10%, -50%); }
+.segment:nth-child(5) { transform: rotate(202.5deg) translate(10%, -50%); }
+.segment:nth-child(6) { transform: rotate(247.5deg) translate(10%, -50%); }
+.segment:nth-child(7) { transform: rotate(292.5deg) translate(10%, -50%); }
+.segment:nth-child(8) { transform: rotate(337.5deg) translate(10%, -50%); }
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 40px solid white;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%) rotate(58deg);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    z-index: 3; /* Ensure the arrow is above the wheel */
+}
+
+#spinButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border: none;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.spinner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Media query for iPhone 14 */
+@media (max-width: 430px) {
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        margin-top: 100px;
+    }
+
+    .wheel-container {
+        width: 300px;
+        height: 300px;
+        margin-top: 100px; /* Опускаем колесо пониже */
+    }
+
+    .segment {
+        font-size: 12px;
+    }
+
+    #spinButton {
+        width: 80px;
+        height: 80px;
+    }
+
+    .arrow {
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 30px solid white;
+        top: -20px;
+    }
+}

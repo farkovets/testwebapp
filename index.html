@@ -3,15 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web App</title>
-    <script>
-        function onClick() {
-            alert("Кнопка нажата!");
-        }
-    </script>
+    <title>Рулетка</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Привет, это мини-приложение!</h1>
-    <button onclick="onClick()">Клик</button>
+    <div class="video-overlay">
+        <video autoplay muted loop id="background-video">
+            <source src="background.MOV" type="video/mp4">
+            Ваш браузер не поддерживает HTML5 видео.
+        </video>
+    </div>
+    <div class="container">
+        <h1>🎡 ВРАЩАЙ КОЛЕСО 🎉</h1>
+        <div class="wheel-container">
+            <div class="arrow"></div>
+            <div class="wheel" id="wheel">
+                <div class="segment">1 ДЕНЬ</div>
+                <div class="segment">5$</div>
+                <div class="segment">5 ДНЕЙ</div>
+                <div class="segment">AIRPODS</div>
+                <div class="segment">10 ДНЕЙ</div>
+                <div class="segment">IPHONE 14</div>
+                <div class="segment">20 ДНЕЙ</div>
+                <div class="segment">200 000 РУБ.</div>
+            </div>
+            <button id="spinButton">
+                <img src="spinner.png" alt="Spin" class="spinner-image">
+            </button>
+        </div>
+        <p>ВРАЩЕНИЙ: <span id="spinCount">0</span></p>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
