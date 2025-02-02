@@ -116,6 +116,11 @@ h1 {
     background: none;
     cursor: pointer;
     outline: none;
+    transition: transform 0.1s ease;
+}
+
+#spinButton:active {
+    transform: translate(-50%, -50%) scale(0.6); /* Уменьшаем на 10% при нажатии */
 }
 
 .spinner-image {
