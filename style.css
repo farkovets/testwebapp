@@ -97,9 +97,9 @@ h1 {
     border-right: 25px solid transparent;
     border-bottom: 40px solid white;
     position: absolute;
-    top: -30px;
+    top: -20px;
     left: 50%;
-    transform: translateX(-50%) rotate(58deg);
+    transform: translateX(-50%) rotate(180deg);
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
     z-index: 3; /* Ensure the arrow is above the wheel */
 }
