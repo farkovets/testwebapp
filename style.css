@@ -136,7 +136,7 @@ h1 {
     .wheel-container {
         width: 300px;
         height: 300px;
-        margin-top: 100px; /* Опускаем колесо пониже */
+        margin-top: 50px; /* Опускаем колесо пониже */
     }
 
     .segment {
