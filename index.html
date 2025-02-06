@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Рулетка</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="video-overlay">
@@ -14,7 +17,7 @@
         </video>
     </div>
     <div class="container">
-        <h1>🎡 ВРАЩАЙ КОЛЕСО</h1>
+        <h1>ВРАЩАЙ КОЛЕСО</h1>
         <div class="wheel-container">
             <div class="arrow"></div>
             <div class="wheel" id="wheel">
@@ -31,7 +34,7 @@
                 <img src="spinner.png" alt="Spin" class="spinner-image">
             </button>
         </div>
-        <p>ВРАЩЕНИЙ: <span id="spinCount">0</span></p>
+        <p class="spin_item" >ВРАЩЕНИЙ: <span id="spinCount">0</span></p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
