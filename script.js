@@ -2,12 +2,12 @@ let spinCount = 0;
 
 document.getElementById("spinButton").addEventListener("click", function () {
     const wheel = document.getElementById("wheel");
-    const randomDegree = Math.floor(3600 + Math.random() * 360); // Случайное вращение
-    wheel.style.transition = "none"; // Сбрасываем переход
-    wheel.style.transform = `rotate(${randomDegree % 360}deg)`; // Устанавливаем начальное положение
+    const randomDegree = Math.floor(3600 + Math.random() * 360); 
+    wheel.style.transition = "none"; 
+    wheel.style.transform = `rotate(${randomDegree % 360}deg)`; 
 
     setTimeout(() => {
-        wheel.style.transition = "transform 4s ease-out"; // Добавляем плавный переход
+        wheel.style.transition = "transform 4s ease-out";
         wheel.style.transform = `rotate(${randomDegree}deg)`;
     }, 0);
 
@@ -15,9 +15,10 @@ document.getElementById("spinButton").addEventListener("click", function () {
     document.getElementById("spinCount").textContent = spinCount;
 
     setTimeout(() => {
-        const winningSegment = determinePrize((randomDegree % 360) + 2 * (360 / 8));
-        alert(`🎉 Ваш приз: ${winningSegment}`);
-    }, 4000); // Задержка для окончания анимации
+        const prize = determinePrize((randomDegree % 360) + 2 * (360 / 8));
+        alert(`🎉 Ваш приз: ${prize}`);
+        sendSpinResult(prize); // Отправка на сервер
+    }, 4000);
 });
 
 function determinePrize(degree) {
@@ -34,4 +35,18 @@ function determinePrize(degree) {
     const segmentAngle = 360 / segments.length;
     const index = Math.floor(degree / segmentAngle) % segments.length;
     return segments[segments.length - 1 - index];
+}
+
+async function sendSpinResult(prize) {
+    const userId = "test_user"; // Заменить на реальный ID пользователя
+    try {
+        const response = await axios.post("http://localhost:8000/spin/", {
+            user_id: userId,
+            prize: prize
+        });
+
+        console.log("Результат сохранён:", response.data);
+    } catch (error) {
+        console.error("Ошибка при отправке результата:", error);
+    }
 }

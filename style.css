@@ -1,5 +1,13 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('fonts/Benzin-ExtraBold.ttf') format('ttf'),
+         url('fonts/Benzin-ExtraBold.ttf') format('ttff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'CustomFont', 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -104,6 +112,10 @@ h1 {
     z-index: 3; /* Ensure the arrow is above the wheel */
 }
 
+
+
+
+
 #spinButton {
     position: absolute;
     top: 50%;
@@ -130,18 +142,17 @@ h1 {
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
 }
 
-/* Media query for iPhone 14 */
 @media (max-width: 430px) {
     h1 {
         font-size: 24px;
         margin-bottom: 20px;
-        
+        margin-top: 100px;
     }
 
     .wheel-container {
         width: 300px;
         height: 300px;
-        margin-top: 50px; /* Опускаем колесо пониже */
+        margin-top: 100px;
     }
 
     .segment {
@@ -160,6 +171,36 @@ h1 {
         border-left: 20px solid transparent;
         border-right: 20px solid transparent;
         border-bottom: 30px solid white;
+        top: -20px;
+    }
+}
+
+@media (min-width: 431px) and (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+        margin-bottom: 25px;
+        margin-top: 80px;
+    }
+
+    .wheel-container {
+        width: 320px;
+        height: 320px;
+        margin-top: 80px;
+    }
+
+    .segment {
+        font-size: 13px;
+    }
+
+    #spinButton {
+        width: 90px;
+        height: 90px;
+    }
+
+    .arrow {
+        border-left: 22px solid transparent;
+        border-right: 22px solid transparent;
+        border-bottom: 35px solid white;
         top: -20px;
     }
 }
